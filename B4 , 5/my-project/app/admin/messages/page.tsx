@@ -7,14 +7,19 @@ export default function AdminMessages() {
   const [messages, setMessages] = useState<any[]>([]);
 
   useEffect(() => {
-    const saved = JSON.parse(localStorage.getItem("messages") || "[]");
-    setMessages(saved);
+    // Đọc dữ liệu từ localStorage ngay khi vào trang
+    const data = localStorage.getItem("all_messages");
+    if (data) {
+      setMessages(JSON.parse(data));
+    }
   }, []);
 
-  const deleteMessage = (index: number) => {
-    const newList = messages.filter((_, i) => i !== index);
-    setMessages(newList);
-    localStorage.setItem("messages", JSON.stringify(newList));
+  const deleteMessage = (id: number) => {
+    if (confirm("Xóa tin nhắn này?")) {
+      const newList = messages.filter((m) => m.id !== id);
+      setMessages(newList);
+      localStorage.setItem("all_messages", JSON.stringify(newList));
+    }
   };
 
   return (
@@ -25,29 +30,45 @@ export default function AdminMessages() {
             <li><Link href="/">Home</Link></li>
             <li><Link href="/admin">Dashboard</Link></li>
             <li><Link href="/admin/messages" className="active">Messages</Link></li>
+            <li><Link href="/admin/projects">Projects</Link></li>
           </ul>
         </nav>
       </header>
 
       <section className="main">
-        <div className="admin-sub-page">
-          <h1>Tin nhắn từ khách hàng</h1>
-          {messages.length === 0 ? (
-            <p>Hòm thư đang trống.</p>
-          ) : (
-            messages.map((m, i) => (
-              <div key={i} style={{ border: "1px solid #ddd", padding: "15px", marginBottom: "15px", position: "relative" }}>
-                <p><strong>Email:</strong> {m.email}</p>
-                <p><strong>Nội dung:</strong> {m.content}</p>
-                <button 
-                  onClick={() => deleteMessage(i)} 
-                  style={{ position: "absolute", top: "10px", right: "10px", color: "red" }}
-                >
-                  Xóa
-                </button>
-              </div>
-            ))
-          )}
+        <div className="admin-sub-page" style={{ margin: "0 auto", maxWidth: "900px" }}>
+          <h1>Hộp Thư Góp Ý ({messages.length})</h1>
+          
+          <table width="100%" border={1} style={{ borderCollapse: "collapse", marginTop: "20px", textAlign: "left" }}>
+            <thead style={{ background: "#f4f4f4" }}>
+              <tr>
+                <th style={{ padding: "10px" }}>Khách hàng</th>
+                <th style={{ padding: "10px" }}>Liên hệ</th>
+                <th style={{ padding: "10px" }}>Nội dung</th>
+                <th style={{ padding: "10px" }}>Thời gian</th>
+                <th style={{ padding: "10px" }}>Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              {messages.length > 0 ? (
+                messages.map((m) => (
+                  <tr key={m.id}>
+                    <td style={{ padding: "10px" }}>{m.name}</td>
+                    <td style={{ padding: "10px" }}>{m.email}<br/>{m.phone}</td>
+                    <td style={{ padding: "10px" }}>{m.message}</td>
+                    <td style={{ padding: "10px" }}>{m.date}</td>
+                    <td style={{ padding: "10px" }}>
+                      <button onClick={() => deleteMessage(m.id)} style={{ color: "red", cursor: "pointer" }}>Xóa</button>
+                    </td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={5} style={{ textAlign: "center", padding: "30px" }}>Không có tin nhắn nào.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </div>
       </section>
 

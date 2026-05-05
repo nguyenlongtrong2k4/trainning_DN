@@ -24,17 +24,24 @@ export default function Contact() {
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const phone = formData.get("phone");
-    const message = formData.get("message");
+    // Tạo object tin nhắn mới
+    const newMessage = {
+      id: Date.now(),
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      message: formData.get("message"),
+      date: new Date().toLocaleString("vi-VN"), 
+    };
 
-    alert(`Đã gửi thành công!
-Name: ${name}
-Email: ${email}
-Phone: ${phone}
-Message: ${message}`);
+    // LẤY DỮ LIỆU CŨ - THÊM MỚI - LƯU LẠI
+    const oldData = localStorage.getItem("all_messages");
+    const allMessages = oldData ? JSON.parse(oldData) : [];
+    
+    allMessages.push(newMessage);
+    localStorage.setItem("all_messages", JSON.stringify(allMessages));
 
+    alert("Message sent successfully! Admin will receive your message.");
     form.reset();
   };
 
@@ -45,29 +52,14 @@ Message: ${message}`);
           <ul>
             <li><Link href="/">Home</Link></li>
             <li><Link href="/works">Works</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="/contact" className="active">Contact</Link></li>
             <li><Link href="/about">About Us</Link></li>
-
             <li>
-              <Link href="/admin">🔐</Link> |{" "}
-              <Link href="/login">👤</Link>
-
+              <Link href="/admin">🔐</Link> | <Link href="/login">👤</Link>
               {user && (
                 <>
-                  {" | "}
-                  Xin chào, {user.full_name || user.name}
-
-                  {user.role === "admin" && (
-                    <>
-                      {" | "}
-                      <Link href="/admin">Admin</Link>
-                    </>
-                  )}
-
-                  {" | "}
-                  <button style={{ border: "1px solid #ccc", padding: "2px 10px", background: "none", cursor: "pointer", color: "red" }} onClick={handleLogout}>
-                    Logout
-                  </button>
+                  {" | "} Xin chào, {user.full_name}
+                  {" | "} <button style={{ color: "red", background: "none", border: "none", cursor: "pointer" }} onClick={handleLogout}>Logout</button>
                 </>
               )}
             </li>
@@ -78,39 +70,26 @@ Message: ${message}`);
       <section className="main">
         <div className="mail_to">
           <h1>Contact Us</h1>
-          <p>If you have any questions, please feel free to contact us.</p>
-          <ul>
-            <li>
-              Email:
-              <a href="mailto:nguyenlongtrong2k4a6@gmail.com">
-                nguyenlongtrong2k4a6@gmail.com
-              </a>
-            </li>
-            <li>Phone: +84867679704</li>
-            <li>Address: 53 Phan Dinh Phung, Thai Nguyen City, Vietnam</li>
-          </ul>
+          <p>Have questions or feedback? We'd love to hear from you!</p>
         </div>
 
-        <div className="contact-form">
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" required />
-            <br /><br />
+        <div className="contact-form" style={{ marginTop: "20px" }}>
+          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px", maxWidth: "500px" }}>
+            <label>Name:</label>
+            <input type="text" name="name" required style={{ padding: "8px" }} />
 
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-            <br /><br />
+            <label>Email:</label>
+            <input type="email" name="email" required style={{ padding: "8px" }} />
 
-            <label htmlFor="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" required />
-            <br /><br />
+            <label>Phone:</label>
+            <input type="tel" name="phone" required style={{ padding: "8px" }} />
 
-            <label htmlFor="message">Message:</label>
-            <br />
-            <textarea id="message" name="message" rows={5} cols={30} required />
-            <br /><br />
+            <label>Message:</label>
+            <textarea name="message" rows={5} required style={{ padding: "8px" }} />
 
-            <input type="submit" value="Submit" />
+            <button type="submit" style={{ padding: "10px", background: "#333", color: "#fff", cursor: "pointer" }}>
+              Send Message
+            </button>
           </form>
         </div>
       </section>

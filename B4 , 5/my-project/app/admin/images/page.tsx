@@ -19,7 +19,7 @@ export default function AdminImages() {
     const newList = [...images, urlInput.trim()];
     setImages(newList);
     localStorage.setItem("all_images", JSON.stringify(newList));
-    setUrlInput(""); // Xóa nội dung ô nhập sau khi thêm
+    setUrlInput(""); 
   };
 
   const deleteImage = (index: number) => {
@@ -32,7 +32,7 @@ export default function AdminImages() {
 
   const copyToClipboard = (url: string) => {
     navigator.clipboard.writeText(url);
-    alert("Đã copy link ảnh! Giờ ông sang trang Projects dán vào ô Image URL nhé.");
+    alert("Đã copy link ảnh!");
   };
 
   return (
@@ -54,8 +54,7 @@ export default function AdminImages() {
           <p style={{ color: "#666", marginBottom: "20px" }}>
             Dán link ảnh vào đây để lưu trữ và sử dụng cho các dự án WhaleShop.
           </p>
-          
-          {/* Form thêm ảnh mới thay cho prompt */}
+
           <form onSubmit={handleAddImage} style={{ marginBottom: "30px", display: "flex", gap: "10px" }}>
             <input 
               type="text" 
