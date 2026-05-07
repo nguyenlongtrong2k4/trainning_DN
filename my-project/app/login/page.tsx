@@ -14,7 +14,7 @@ export default function Login() {
 
     if (emailInput === "admin1@gmail.com" && passwordInput === "123456") {
       localStorage.setItem("user", JSON.stringify({
-        full_name: "Administrator",
+        full_name: "Nguyễn Long Trọng",
         email: "admin1@gmail.com",
         role: "admin"
       }));

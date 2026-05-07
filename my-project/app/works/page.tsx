@@ -39,11 +39,23 @@ export default function Works() {
             <li>
               <Link href="/admin">🔐</Link> | <Link href="/login">👤</Link>
               {user && (
-                <>
-                  {" | "} Xin chào, {user.full_name}
-                  {" | "} <button style={{ color: "red", background: "none", border: "none", cursor: "pointer" }} onClick={handleLogout}>Logout</button>
-                </>
-              )}
+                    <>
+                    {" | "}
+                    Hello, {user.full_name || user.name}
+
+                    {user.role === "admin" && (
+                        <>
+                        {" | "}
+                        <Link href="/admin">Admin</Link>
+                        </>
+                    )}
+
+                    {" | "}
+                    <button style={{ border: "1px solid #ccc", padding: "2px 10px", background: "none", cursor: "pointer", color: "red" }} onClick={handleLogout}>
+                      Logout
+                    </button>
+                    </>
+                )}
             </li>
           </ul>
         </nav>
@@ -51,14 +63,14 @@ export default function Works() {
 
       <section className="main">
         <div className="works">
-          <h1 style={{ marginBottom: "10px" }}>Our Works</h1>
+          <h1 style={{ marginBottom: "10px" , margin:"0 auto" }}>Our Works</h1>
           <p style={{ marginBottom: "30px" }}>Here are some of our recent projects and achievements.</p>
 
           <div className="work-list" style={{ 
             display: "grid", 
             gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", 
             gap: "20px", 
-            background: "#8a6868", 
+            background: "#8d7e7e", 
             padding: "20px", 
             borderRadius: "8px" 
           }}>
@@ -76,7 +88,7 @@ export default function Works() {
               ))
             ) : (
               <div style={{ textAlign: "center", padding: "50px", gridColumn: "1 / -1", color: "#fff" }}>
-                <p>Chưa có dự án nào được đăng tải.</p>
+                <p>No projects have been posted yet...</p>
               </div>
             )}
           </div>

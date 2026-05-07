@@ -4,16 +4,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function AdminProjects() {
-  // Khởi tạo state rỗng để tránh lỗi Hydration
   const [projects, setProjects] = useState<any[]>([]);
-  const [isLoaded, setIsLoaded] = useState(false); // Đánh dấu đã tải xong dữ liệu từ client
+  const [isLoaded, setIsLoaded] = useState(false); 
   
   const [pName, setPName] = useState("");
   const [pDesc, setPDesc] = useState("");
   const [pImg, setPImg] = useState("");
   const [editId, setEditId] = useState<number | null>(null);
 
-  // Chỉ chạy ở phía Client
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem("all_projects") || "[]");
     setProjects(saved);
@@ -68,7 +66,6 @@ export default function AdminProjects() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Nếu chưa load xong từ localStorage thì chưa hiện bảng để tránh lỗi giao diện
   if (!isLoaded) return <div className="container">Đang tải dữ liệu...</div>;
 
   return (
@@ -155,13 +152,13 @@ export default function AdminProjects() {
                 </tr>
               )}
             </tbody>
-          </table>
+          </table>  
         </div>
       </section>
 
-      <footer className="footer" style={{ marginTop: "20px", textAlign: "center" }}>
+      <footer className="footer">
         <p>© 2026 LT Creative Agency. All rights reserved.</p>
       </footer>
     </div>
-  );
+  );                                                 
 }

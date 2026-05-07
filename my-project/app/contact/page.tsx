@@ -24,7 +24,6 @@ export default function Contact() {
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    // Tạo object tin nhắn mới
     const newMessage = {
       id: Date.now(),
       name: formData.get("name"),
@@ -34,7 +33,6 @@ export default function Contact() {
       date: new Date().toLocaleString("vi-VN"), 
     };
 
-    // LẤY DỮ LIỆU CŨ - THÊM MỚI - LƯU LẠI
     const oldData = localStorage.getItem("all_messages");
     const allMessages = oldData ? JSON.parse(oldData) : [];
     
@@ -51,26 +49,43 @@ export default function Contact() {
         <nav>
           <ul>
             <li><Link href="/">Home</Link></li>
-            <li><Link href="/works">Works</Link></li>
-            <li><Link href="/contact" className="active">Contact</Link></li>
+            <li><Link href="/works" className="active">Works</Link></li>
+            <li><Link href="/contact">Contact</Link></li>
             <li><Link href="/about">About Us</Link></li>
             <li>
               <Link href="/admin">🔐</Link> | <Link href="/login">👤</Link>
               {user && (
-                <>
-                  {" | "} Xin chào, {user.full_name}
-                  {" | "} <button style={{ color: "red", background: "none", border: "none", cursor: "pointer" }} onClick={handleLogout}>Logout</button>
-                </>
-              )}
+                    <>
+                    {" | "}
+                    Hello, {user.full_name || user.name}
+
+                    {user.role === "admin" && (
+                        <>
+                        {" | "}
+                        <Link href="/admin">Admin</Link>
+                        </>
+                    )}
+
+                    {" | "}
+                    <button style={{ border: "1px solid #ccc", padding: "2px 10px", background: "none", cursor: "pointer", color: "red" }} onClick={handleLogout}>
+                      Logout
+                    </button>
+                    </>
+                )}
             </li>
           </ul>
         </nav>
       </header>
-
       <section className="main">
         <div className="mail_to">
           <h1>Contact Us</h1>
-          <p>Have questions or feedback? We'd love to hear from you!</p>
+          <p>
+            Have questions, suggestions, or feedback about our services? 
+            We’re always happy to hear from you! Whether you need support, 
+            want to learn more about our projects, or simply want to share 
+            your thoughts, feel free to get in touch with our team anytime. 
+            We’ll do our best to respond as quickly as possible.
+          </p>
         </div>
 
         <div className="contact-form" style={{ marginTop: "20px" }}>

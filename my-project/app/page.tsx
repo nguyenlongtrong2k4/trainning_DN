@@ -43,7 +43,7 @@ export default function Home() {
                 {user && (
                     <>
                     {" | "}
-                    Xin chào, {user.full_name || user.name}
+                    Hello, {user.full_name || user.name}
 
                     {user.role === "admin" && (
                         <>
@@ -62,92 +62,120 @@ export default function Home() {
           </ul>
         </nav>
       </header>
-
       <section className="main">
         <div className="main_1">
           <img src="/image/image.jpg" alt="" />
         </div>
-
         <div className="main_2">
           <div className="item_main_2">
             <div className="main-text">
               <div className="line-1">This year</div>
               <div className="line-2">Start your own business</div>
             </div>
-
-            <div className="bottom-right">
+          <div className="bottom-right">
               <div className="info">Check out for more info</div>
               <Link href="/contact" className="btn-box">
                 Click Here
               </Link>
-            </div>
+          </div>
 
             <div className="decor-lines">
-              <span></span>
-              <span></span>
-              <span></span>
+              <span></span><span></span><span></span>
             </div>
-
             <div className="socials">
-              <a href="#">
-                <img src="/image/fb.jpg" alt="Facebook" />
+              <a href="https://www.facebook.com/longtrongcutedjproducer.99999">
+                <img src="/image/fb.webp" alt="Facebook" />
               </a>
               <a href="#">
-                <img src="/image/wa.jpg" alt="WhatsApp" />
+                <img src="/image/ws.png" alt="WhatsApp" />
               </a>
-              <a href="#">
-                <img src="/image/yt.jpg" alt="YouTube" />
+              <a href="https://www.youtube.com/@TrongNguyen-cf8kr">
+                <img src="/image/yt.png" alt="YouTube" />
               </a>
-              <a href="#">
-                <img src="/image/ig.jpg" alt="Instagram" />
+              <a href="https://www.instagram.com/longtrong_0505/">
+                <img src="/image/ig.png" alt="Instagram" />
               </a>
             </div>
           </div>
         </div>
       </section>
-
       <section className="services">
-        <h2>Our Services</h2>
-        <div className="service-list">
-          <div className="service-card">
-            <h3>Web Design</h3>
-            <p>Modern and user-friendly website design.</p>
-          </div>
+        <p style={{ textAlign: 'left', fontSize: '60px' , margin:"0 auto"}}>Our Services</p>
+          <div className="service-list">
+            <div className="service-card">
+              <h2>Web Design & Development</h2>
+                <p>
+                  We create high-performance, responsive websites tailored to your brand. 
+                  From landing pages to complex e-commerce platforms, our designs focus on 
+                  delivering seamless user experiences and driving conversions.
+                </p>
+                <ul style={{ textAlign: 'left', fontSize: '18px', marginTop: '10px', color: '#666' }}>
+                  <li>UI/UX Design</li>
+                  <li>Responsive Layouts</li>
+                  <li>E-commerce Solutions</li>
+                </ul>
+              </div>
 
-          <div className="service-card">
-            <h3>Branding</h3>
-            <p>Building brand and corporate identity.</p>
-          </div>
+            <div className="service-card">
+              <h2>Branding & Identity</h2>
+                <p>
+                  Building a strong brand starts with a compelling story. We help define your 
+                  visual identity, including logo design, color palettes, and typography, 
+                  ensuring your business stands out and stays memorable in the market.
+                </p>
+                <ul style={{ textAlign: 'left', fontSize: '18px', marginTop: '10px', color: '#666' }}>
+                  <li>Logo & Visual Style</li>
+                  <li>Brand Strategy</li>
+                  <li>Creative Direction</li>
+                </ul>
+            </div>
 
-          <div className="service-card">
-            <h3>Marketing</h3>
-            <p>Modern online marketing solutions.</p>
+            <div className="service-card">
+              <h2>Digital Marketing</h2>
+                <p>
+                  Accelerate your growth with data-driven marketing strategies. We specialize 
+                  in SEO, social media management, and targeted ad campaigns to connect your 
+                  brand with the right audience at the right time.
+                </p>
+                <ul style={{ textAlign: 'left', fontSize: '18px', marginTop: '10px', color: '#666' }}>
+                  <li>SEO Optimization</li>
+                  <li>Social Media Strategy</li>
+                  <li>Content Marketing</li>
+                </ul>
+            </div>
           </div>
-        </div>
       </section>
-
       <section className="featured-works">
-        <h2>Featured Projects</h2>
+        <p style={{ textAlign: 'left', fontSize: '60px' ,margin:"0 auto"}}>Featured Projects</p>
         <div className="work-list">
           <div className="work-card">
-            <img src="/image/project1.jpg" alt="" />
-            <h3>E-commerce Website</h3>
+            <div className="work-content">
+              <h2>E-commerce Fashion Platform</h2>
+              <ul style={{ textAlign: 'left', fontSize: '18px', marginTop: '10px', color: '#666' }}>
+                <li>
+                A complete online shopping solution featuring secure payment gateways, 
+                user authentication, and a dynamic product management system designed 
+                to provide a seamless experience across all devices.
+                </li>
+              </ul>
+              
+            </div>
           </div>
 
           <div className="work-card">
-            <img src="/image/project2.jpg" alt="" />
-            <h3>Creative Portfolio</h3>
+            <div className="work-content">
+              <h2>Creative Agency Portfolio</h2>
+              <ul style={{ textAlign: 'left', fontSize: '18px', marginTop: '10px', color: '#666' }}>
+              <li>
+                A minimalist and modern portfolio layout focused on visual storytelling. 
+                We implemented smooth scroll animations and high-quality image galleries 
+                to showcase creative works in the most professional way possible.
+              </li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
-
-      <section className="about-preview">
-        <h2>About LT Creative Agency</h2>
-        <p>
-          LT Creative Agency is a creative agency specializing in web design, branding, and digital marketing solutions for businesses.
-        </p>
-      </section>
-
       <footer className="footer">
         <p>© 2026 LT Creative Agency. All rights reserved.</p>
       </footer>

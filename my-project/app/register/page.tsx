@@ -74,7 +74,7 @@ export default function Register() {
               <Link href="/admin">🔐</Link> | <Link href="/login">👤</Link>
               {user && (
                 <>
-                  {" | "} Xin chào, {user.full_name}
+                  {" | "} Hello, {user.full_name}
                   {" | "} <button onClick={handleLogout} style={{ color: "red", background: "none", border: "none", cursor: "pointer" }}>Logout</button>
                 </>
               )}
