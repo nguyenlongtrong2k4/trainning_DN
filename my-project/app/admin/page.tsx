@@ -42,7 +42,7 @@ export default function Admin() {
           </ul>
         </nav>
         <div className="user-info">
-          <span>Xin chào, <b>{user.full_name}</b></span>
+          <span>Hello, <b>{user.full_name}</b></span>
           <button style={{ marginLeft: "20px", border: "1px solid #ccc", padding: "5px 10px", background: "none", cursor: "pointer", color: "red" }}
             className="btn-logout" 
             onClick={() => { 

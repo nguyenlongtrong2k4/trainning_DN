@@ -67,11 +67,11 @@ export default function Works() {
           <p style={{ marginBottom: "30px" }}>Here are some of our recent projects and achievements.</p>
 
           <div className="work-list" style={{ 
-            display: "grid", 
+            display: "flex", 
             gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", 
-            gap: "20px", 
+            gap: "10px", 
             background: "#8d7e7e", 
-            padding: "20px", 
+            padding: "10px", 
             borderRadius: "8px" 
           }}>
             {projects.length > 0 ? (

@@ -14,7 +14,7 @@ export default function AdminMessages() {
   }, []);
 
   const deleteMessage = (id: number) => {
-    if (confirm("Xóa tin nhắn này?")) {
+    if (confirm("Delete this message?")) {
       const newList = messages.filter((m) => m.id !== id);
       setMessages(newList);
       localStorage.setItem("all_messages", JSON.stringify(newList));

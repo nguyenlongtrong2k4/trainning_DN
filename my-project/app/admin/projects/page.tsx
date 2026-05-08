@@ -119,7 +119,7 @@ export default function AdminProjects() {
             </div>
           </form>
 
-          <table width="100%" border={1} style={{ borderCollapse: "collapse", background: "#f9f9f9" }}>
+          <table width="100%" border={1} style={{ borderCollapse: "collapse", background: "#f9f9f9", marginBottom: "30px" }}>
             <thead>
               <tr style={{ background: "#f4f4f4" }}>
                 <th style={{ padding: "10px" }}>Ảnh dự án</th>

@@ -6,6 +6,7 @@
     margin: 0 auto  ;
 }
 .header{
+    border: 1px solid #ffff;
     display: flex;
     align-items: center;
     justify-content: right;
