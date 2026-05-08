@@ -61,28 +61,29 @@ export default function AdminUsers() {
       </header>
 
       <section className="main">
-        <div className="admin-sub-page" style={{margin:"0 auto"}}>
-          <h1 style={{ textAlign: "center", color: "#333" }}>Quản lý người dùng</h1>
-          <table width="100%" border={1} style={{ borderCollapse: "collapse", marginTop: "20px" , textAlign: "center" , background: "#f9f9f9"}}>
-            <thead style={{ background: "#f4f4f4" }}>
-              <tr>
-                <th>Họ tên</th>
-                <th>Email</th>
-                <th>Quyền hạn</th>
-                <th>Hành động</th>
+        <div className="admin-sub-page users-manager-container">
+          <p className="users-title">Quản lý người dùng</p>
+          <hr color="#ccc" />
+          <table width="100%" border={1} className="users-table">
+            <thead className="users-table-head">
+              <tr style={{ color: "#333" }}>
+                <th className="users-table-cell">Họ tên</th>
+                <th className="users-table-cell">Email</th>
+                <th className="users-table-cell">Quyền hạn</th>
+                <th className="users-table-cell">Hành động</th>
               </tr>
             </thead>
             <tbody>
               {users.map((u, index) => (
-                <tr key={index} style={{ textAlign: "center" }}>
-                  <td style={{ padding: "10px" }}>{u.full_name}</td>
-                  <td style={{ padding: "10px" }}>{u.email}</td>
-                  <td style={{ padding: "10px", fontWeight: "bold" , color: u.role === "admin" ? "green" : "blue" }}>
+                <tr key={index} className="users-table-row">
+                  <td className="users-table-cell">{u.full_name}</td>
+                  <td className="users-table-cell">{u.email}</td>
+                  <td className="users-table-cell role-badge" style={{ color: u.role === "admin" ? "green" : "blue" }}>
                     {u.role?.toUpperCase() || "USER"}
                   </td>
-                  <td style={{ padding: "10px" }}>
-                    <button onClick={() => toggleRole(u.email)} style={{ marginRight: "10px" }}>Đổi quyền</button>
-                    <button onClick={() => deleteUser(u.email)} style={{ color: "red" }}>Xóa</button>
+                  <td className="users-table-cell">
+                    <button onClick={() => toggleRole(u.email)} className="btn-toggle-role">Đổi quyền</button>
+                    <button onClick={() => deleteUser(u.email)} className="btn-delete-user">Xóa</button>
                   </td>
                 </tr>
               ))}

@@ -49,46 +49,47 @@ export default function AdminImages() {
       </header>
 
       <section className="main">
-        <div className="admin-sub-page" style={{ margin: "0 auto", maxWidth: "900px" }}>
-          <h1 style={{ marginBottom: "10px" }}>Thư viện Hình ảnh</h1>
-          <p style={{ color: "#666", marginBottom: "20px" }}>
+        <div className="admin-sub-page img-lib-container">
+          <p className="img-lib-title">Thư viện Hình ảnh</p>
+          <hr color="#ccc" />
+          <p className="img-lib-subtitle">
             Dán link ảnh vào đây để lưu trữ và sử dụng cho các dự án WhaleShop.
           </p>
 
-          <form onSubmit={handleAddImage} style={{ marginBottom: "30px", display: "flex", gap: "10px" }}>
+          <form onSubmit={handleAddImage} className="img-add-form">
             <input 
               type="text" 
               placeholder="Dán URL hình ảnh vào đây (ví dụ: https://...)" 
               value={urlInput}
               onChange={(e) => setUrlInput(e.target.value)}
-              style={{ flex: 1, padding: "12px", borderRadius: "4px" }}
+              className="img-input-url"
             />
-            <button type="submit" style={{ padding: "10px 25px", cursor: "pointer", background: "#0070f3", color: "#fff", border: "none", borderRadius: "4px", fontWeight: "bold" }}>
+            <button type="submit" className="btn-img-submit">
               Thêm vào kho
             </button>
           </form>
           
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "20px", marginBottom: "40px" }}>
+          <div className="img-grid">
             {images.length > 0 ? (
               images.map((img, index) => (
-                <div key={index} className="image-card" style={{ padding: "10px", textAlign: "center", borderRadius: "8px", background: "#fff", boxShadow: "0 2px 5px rgba(0,0,0,0.05)"  }}>
+                <div key={index} className="image-card">
                   <img 
                     src={img} 
                     alt={`Item ${index}`} 
-                    style={{ width: "100%", height: "160px", objectFit: "cover", cursor: "pointer", borderRadius: "4px" }} 
+                    className="img-preview-item"
                     onClick={() => copyToClipboard(img)}
                     title="Click để copy link"
                   />
-                  <div style={{ marginTop: "12px", display: "flex", justifyContent: "space-between", gap: "5px" }}>
+                  <div className="img-card-actions">
                     <button 
                       onClick={() => copyToClipboard(img)} 
-                      style={{ flex: 1, fontSize: "12px", cursor: "pointer", padding: "5px", background: "#f0f0f0", border: "1px solid #ddd" }}
+                      className="btn-copy-url"
                     >
                       Copy Link
                     </button>
                     <button 
                       onClick={() => deleteImage(index)} 
-                      style={{ fontSize: "12px", color: "#fff", background: "#ff4d4f", border: "none", cursor: "pointer", padding: "5px 10px", borderRadius: "3px" }}
+                      className="btn-delete-img"
                     >
                       Xóa
                     </button>
@@ -96,7 +97,7 @@ export default function AdminImages() {
                 </div>
               ))
             ) : (
-              <div style={{ gridColumn: "1/-1", textAlign: "center", padding: "40px", color: "#999", border: "2px dashed #eee" }}>
+              <div className="empty-lib-msg">
                 Thư viện hiện đang trống. Hãy thêm ảnh đầu tiên!
               </div>
             )}

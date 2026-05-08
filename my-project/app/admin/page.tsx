@@ -9,7 +9,6 @@ export default function Admin() {
   const router = useRouter();
 
   useEffect(() => {
-    
     const data = localStorage.getItem("user");
     
     if (!data) {
@@ -27,7 +26,12 @@ export default function Admin() {
     }
   }, [router]);
 
-  if (!user) return <h1 style={{color: "white", padding: "20px"}}>Đang kiểm tra quyền Admin...</h1>;
+  const handleLogout = () => {
+    localStorage.removeItem("user"); 
+    window.location.href = "/login"; 
+  };
+
+  if (!user) return <h1 className="loading-text">Đang kiểm tra quyền Admin...</h1>;
 
   return (
     <div className="container admin-page">
@@ -43,13 +47,8 @@ export default function Admin() {
         </nav>
         <div className="user-info">
           <span>Hello, <b>{user.full_name}</b></span>
-          <button style={{ marginLeft: "20px", border: "1px solid #ccc", padding: "5px 10px", background: "none", cursor: "pointer", color: "red" }}
-            className="btn-logout" 
-            onClick={() => { 
-              localStorage.removeItem("user"); 
-              window.location.href = "/login"; 
-            }}
-          >
+           |
+          <button className="btn-logout" onClick={handleLogout}>
             Đăng xuất
           </button>
         </div>
@@ -57,37 +56,38 @@ export default function Admin() {
 
       <section className="main">
         <div className="admin">
-            <h1>Hệ Thống Quản Trị</h1>
+            <p className="admin-title">Hệ Thống Quản Trị</p>
+            <hr color="#ccc" />
             <div className="admin-menu">
                 <div className="admin-card">
-                <h3>Quản lý Dự án</h3>
-                <Link href="/admin/projects">
-                    <button type="button">Thêm mới</button>
-                </Link>
+                  <h3>Quản lý Dự án</h3>
+                  <Link href="/admin/projects">
+                      <button type="button">Thêm mới</button>
+                  </Link>
                 </div>
                 
                 <div className="admin-card">
-                <h3>Thư viện hình ảnh</h3>
-                <Link href="/admin/images">
-                    <button type="button">Upload</button>
-                </Link>
+                  <h3>Thư viện hình ảnh</h3>
+                  <Link href="/admin/images">
+                      <button type="button">Upload</button>
+                  </Link>
                 </div>
 
                 <div className="admin-card">
-                <h3>Tin nhắn</h3>
-                <Link href="/admin/messages">
-                    <button type="button">Kiểm tra</button>
-                </Link>
+                  <h3>Tin nhắn</h3>
+                  <Link href="/admin/messages">
+                      <button type="button">Kiểm tra</button>
+                  </Link>
                 </div>
 
                 <div className="admin-card">
-                <h3>Thành viên</h3>
-                <Link href="/admin/users">
-                    <button type="button">Quản lý</button>
-                </Link>
+                  <h3>Thành viên</h3>
+                  <Link href="/admin/users">
+                      <button type="button">Quản lý</button>
+                  </Link>
                 </div>
             </div>
-            </div>
+          </div>
       </section>
 
       <footer className="footer">

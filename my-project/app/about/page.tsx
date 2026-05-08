@@ -29,51 +29,54 @@ export default function About() {
             <li><Link href="/about">About Us</Link></li>
 
             <li>
-                <Link href="/admin">🔐</Link> |{" "}
-                <Link href="/login">👤</Link>
+              <Link href="/admin">🔐</Link> |{" "}
+              <Link href="/login">👤</Link>
 
-                {user && (
+              {user && (
+                <>
+                  {" | "}
+                  Xin chào, {user.full_name || user.name}
+
+                  {user.role === "admin" && (
                     <>
-                    {" | "}
-                    Hello, {user.full_name || user.name}
-
-                    {user.role === "admin" && (
-                        <>
-                        {" | "}
-                        <Link href="/admin">Admin</Link>
-                        </>
-                    )}
-
-                    {" | "}
-                    <button style={{ border: "1px solid #ccc", padding: "2px 10px", background: "none", cursor: "pointer", color: "red" }} onClick={handleLogout}>
-                      Logout
-                    </button>
+                      {" | "}
+                      <Link href="/admin">Admin</Link>
                     </>
-                )}
-                </li>
+                  )}
+
+                  {" | "}
+                  <button className="btn-logout" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </>
+              )}
+            </li>
           </ul>
         </nav>
       </header>
 
       <section className="main">
         <div className="about">
-          <h1>About Us</h1>
-          <p>
-            We are a company dedicated to providing high-quality products
-            and services to our customers. Our mission is to create
-            innovative solutions that meet the needs of our clients and
-            help them achieve their goals.
-          </p>
-          <p>
-            Our team consists of experienced professionals who are
-            passionate about their work and committed to delivering
-            excellence. We value integrity, creativity, and collaboration
-            in everything we do.
-          </p>
-          <p>
-            Thank you for visiting our website. We look forward to
-            working with you!
-          </p>
+          <p className="about-title">About Us</p>
+          <hr color="#ccc" />
+          <div className="about-content">
+            <p>
+              We are a company dedicated to providing high-quality products
+              and services to our customers. Our mission is to create
+              innovative solutions that meet the needs of our clients and
+              help them achieve their goals.
+            </p>
+            <p>
+              Our team consists of experienced professionals who are
+              passionate about their work and committed to delivering
+              excellence. We value integrity, creativity, and collaboration
+              in everything we do.
+            </p>
+            <p>
+              Thank you for visiting our website. We look forward to
+              working with you!
+            </p>
+          </div>
         </div>
       </section>
 

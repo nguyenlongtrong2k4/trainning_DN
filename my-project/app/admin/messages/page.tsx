@@ -35,35 +35,39 @@ export default function AdminMessages() {
       </header>
 
       <section className="main">
-        <div className="admin-sub-page" style={{ margin: "0 auto", maxWidth: "900px" }}>
-          <h1>Hộp Thư Góp Ý ({messages.length})</h1>
+        <div className="admin-sub-page messages-container">
+          <p className="messages-title">Hộp Thư Góp Ý ({messages.length})</p>
+          <hr color="#ccc" />
+          <p className="messages-subtitle">
+            Đây là nơi bạn có thể xem và quản lý tất cả các tin nhắn liên hệ từ khách hàng.
+          </p>
           
-          <table width="100%" border={1} style={{ borderCollapse: "collapse", marginTop: "20px", textAlign: "left" }}>
-            <thead style={{ background: "#f4f4f4" }}>
+          <table width="100%" border={1} className="messages-table">
+            <thead className="messages-table-head">
               <tr>
-                <th style={{ padding: "10px" }}>Khách hàng</th>
-                <th style={{ padding: "10px" }}>Liên hệ</th>
-                <th style={{ padding: "10px" }}>Nội dung</th>
-                <th style={{ padding: "10px" }}>Thời gian</th>
-                <th style={{ padding: "10px" }}>Hành động</th>
+                <th className="messages-table-cell">Khách hàng</th>
+                <th className="messages-table-cell">Liên hệ</th>
+                <th className="messages-table-cell">Nội dung</th>
+                <th className="messages-table-cell">Thời gian</th>
+                <th className="messages-table-cell">Hành động</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="messages-table-body">
               {messages.length > 0 ? (
                 messages.map((m) => (
                   <tr key={m.id}>
-                    <td style={{ padding: "10px" }}>{m.name}</td>
-                    <td style={{ padding: "10px" }}>{m.email}<br/>{m.phone}</td>
-                    <td style={{ padding: "10px" }}>{m.message}</td>
-                    <td style={{ padding: "10px" }}>{m.date}</td>
-                    <td style={{ padding: "10px" }}>
-                      <button onClick={() => deleteMessage(m.id)} style={{ color: "red", cursor: "pointer" }}>Xóa</button>
+                    <td className="messages-table-cell">{m.name}</td>
+                    <td className="messages-table-cell">{m.email}<br/>{m.phone}</td>
+                    <td className="messages-table-cell">{m.message}</td>
+                    <td className="messages-table-cell">{m.date}</td>
+                    <td className="messages-table-cell">
+                      <button onClick={() => deleteMessage(m.id)} className="btn-delete-msg">Xóa</button>
                     </td>
                   </tr>
                 ))
               ) : (
                 <tr>
-                  <td colSpan={5} style={{ textAlign: "center", padding: "30px" }}>Không có tin nhắn nào.</td>
+                  <td colSpan={5} className="no-messages-cell">Không có tin nhắn nào.</td>
                 </tr>
               )}
             </tbody>

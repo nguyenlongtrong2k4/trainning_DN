@@ -39,7 +39,7 @@ export default function AdminProjects() {
       const newItem = {
         id: Date.now(),
         title: pName,
-        description: pDesc || "Mô tả sản phẩm WhaleShop...",
+        description: pDesc || "Mô tả dự án...",
         image: pImg || "https://via.placeholder.com/300x200",
         date: new Date().toLocaleDateString(),
       };
@@ -81,78 +81,91 @@ export default function AdminProjects() {
       </header>
 
       <section className="main">
-        <div className="admin-sub-page" style={{ margin: "0 auto" }}>
-          <h1>{editId ? "Chỉnh sửa Dự án" : "Quản lý Dự án"}</h1>
-
-          <form onSubmit={handleSubmit} style={{ marginBottom: "30px", display: "flex", flexDirection: "column", gap: "10px", maxWidth: "500px" }}>
+        <div className="admin-sub-page admin-sub-page-content">
+          <p className="admin-page-title">
+            {editId ? "Chỉnh sửa Dự án" : "Quản lý Dự án"}
+          </p>
+          <hr color="#ccc" />
+          
+          <form onSubmit={handleSubmit} className="admin-project-form">
             <input 
               type="text" 
               placeholder="Tên dự án (Title)..." 
               required 
-              style={{ padding: "10px", border: "1px solid #ccc" }} 
+              className="admin-project-input"
               value={pName} 
               onChange={(e) => setPName(e.target.value)} 
             />
             <input 
               type="text" 
               placeholder="Mô tả ngắn (Description)..." 
-              style={{ padding: "10px", border: "1px solid #ccc" }} 
+              className="admin-project-input"
               value={pDesc} 
               onChange={(e) => setPDesc(e.target.value)} 
             />
             <input 
               type="text" 
               placeholder="Link ảnh dự án (Image URL)..." 
-              style={{ padding: "10px", border: "1px solid #ccc" }} 
+              className="admin-project-input"
               value={pImg} 
               onChange={(e) => setPImg(e.target.value)} 
             />
-            <div style={{ display: "flex", gap: "10px" }}>
-                <button type="submit" style={{ flex: 1, padding: "10px", background: editId ? "#28a745" : "#333", color: "#fff", cursor: "pointer", border: "none" }}>
+            <div className="admin-form-btn-group">
+                <button 
+                  type="submit" 
+                  className="btn-project-submit"
+                  style={{ background: editId ? "#28a745" : "#333" }} // Màu nền đổi theo state nên giữ lại inline
+                >
                 {editId ? "Cập nhật dự án" : "+ Thêm dự án vào Works"}
                 </button>
                 {editId && (
-                    <button type="button" onClick={() => { setEditId(null); setPName(""); setPDesc(""); setPImg(""); }} style={{ padding: "10px", background: "#ccc", cursor: "pointer", border: "none" }}>
+                    <button 
+                      type="button" 
+                      onClick={() => { setEditId(null); setPName(""); setPDesc(""); setPImg(""); }} 
+                      className="btn-project-cancel"
+                    >
                     Hủy sửa
                     </button>
                 )}
             </div>
           </form>
 
-          <table width="100%" border={1} style={{ borderCollapse: "collapse", background: "#f9f9f9", marginBottom: "30px" }}>
+          <table width="100%" border={1} className="admin-project-table">
             <thead>
-              <tr style={{ background: "#f4f4f4" }}>
-                <th style={{ padding: "10px" }}>Ảnh dự án</th>
-                <th style={{ padding: "10px" }}>Thông tin dự án</th>
-                <th style={{ padding: "10px" }}>Ngày tạo</th>
-                <th style={{ padding: "10px" }}>Hành động</th>
+              <tr className="admin-table-header">
+                <th className="admin-table-cell">Ảnh dự án</th>
+                <th className="admin-table-cell">Thông tin dự án</th>
+                <th className="admin-table-cell">Ngày tạo</th>
+                <th className="admin-table-cell">Hành động</th>
               </tr>
             </thead>
             <tbody>
               {projects.length > 0 ? (
                 projects.map((p) => (
-                  <tr key={p.id}>
-                    <td style={{ padding: "10px", width: "120px", textAlign: "center" }}>
-                      <img src={p.image} alt={p.title} style={{ width: "100px", height: "60px", objectFit: "cover" }} />
+                  <tr key={p.id} className="admin-table-row">
+                    <td className="admin-table-cell" style={{ width: "120px", textAlign: "center" }}>
+                      <img src={p.image} alt={p.title} className="project-img-preview" />
                     </td>
-                    <td style={{ padding: "10px" }}>
+                    <td className="admin-table-cell">
                       <strong>{p.title}</strong>
-                      <p style={{ fontSize: "12px", color: "#666", margin: "5px 0 0" }}>{p.description}</p>
+                      <p className="project-desc-text">{p.description}</p>
                     </td>
-                    <td style={{ padding: "10px", textAlign: "center" }}>{p.date}</td>
-                    <td style={{ padding: "10px", textAlign: "center" }}>
-                      <button onClick={() => startEdit(p)} style={{ color: "blue", cursor: "pointer", marginRight: "10px", background: "none", border: "none" }}>Sửa</button>
-                      <button onClick={() => deleteProject(p.id)} style={{ color: "red", cursor: "pointer", background: "none", border: "none" }}>Xóa</button>
+                    <td className="admin-table-cell" style={{ textAlign: "center" }}>{p.date}</td>
+                    <td className="admin-table-cell" style={{ textAlign: "center" }}>
+                      <button onClick={() => startEdit(p)} className="btn-edit-action">Sửa</button>
+                      <button onClick={() => deleteProject(p.id)} className="btn-delete-action">Xóa</button>
                     </td>
                   </tr>
                 ))
               ) : (
-                <tr>
-                  <td colSpan={4} style={{ padding: "20px", textAlign: "center" }}>Chưa có dự án nào.</td>
+                <tr className="admin-table-row">
+                  <td colSpan={4} className="admin-table-cell" style={{ padding: "20px", textAlign: "center" }}>
+                    Chưa có dự án nào.
+                  </td>
                 </tr>
               )}
             </tbody>
-          </table>  
+          </table>   
         </div>
       </section>
 
@@ -160,5 +173,5 @@ export default function AdminProjects() {
         <p>© 2026 LT Creative Agency. All rights reserved.</p>
       </footer>
     </div>
-  );                                                 
+  );                                          
 }

@@ -352,3 +352,495 @@ footer{
     font-weight: bold;
     font-size: 1.2vw;
 }
+
+.btn-logout {
+    border: 1px solid #ccc;
+    padding: 2px 10px;
+    background: none;
+    cursor: pointer;
+    color: red;
+}
+
+.section-heading {
+    text-align: center;
+    font-size: 60px;
+    margin: 0 auto;
+}
+
+.card-title {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.card-details {
+    text-align: left;
+    font-size: 18px;
+    margin-top: 10px;
+    color: #666;
+}
+
+.services-detail {
+    padding: 20px;
+    min-height: 80vh;
+}
+
+.services-title {
+    text-align: center;
+    font-size: 60px;
+    margin-bottom: 10px;
+    color: #ffff;
+}
+
+.services-subtitle {
+    text-align: center;
+    font-size: 20px;
+    color: #666;
+    margin-bottom: 60px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    padding: 0 50px;
+}
+
+.service-card-title {
+    font-size: 28px;
+    color: #ffff;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 35px;
+    text-align: center;
+}
+
+.service-card-desc {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.process-flow {
+    margin-top: 100px;
+    text-align: center;
+    padding: 0 20px;
+    border: 1px solid #ccc;
+}
+
+.process-title {
+    font-size: 45px;
+    margin-bottom: 50px;
+    color: #ffff;
+}
+
+.process-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.process-step {
+    width: 200px;
+}
+
+.step-number {
+    font-size: 30px;
+    color: #ffff;
+}
+
+.step-label {
+    font-size: 20px;
+    color: #ffff;
+}
+
+.step-desc {
+    color: #666;
+}
+
+.cta-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.mail_to .contact-title {
+    text-align: left;
+    font-size: 60px;
+    margin: 0 auto;
+}
+
+.contact-form-container {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+}
+
+.contact-input {
+    padding: 8px;
+}
+
+.btn-submit {
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-logout {
+    border: 1px solid #ccc;
+    padding: 2px 10px;
+    background: none;
+    cursor: pointer;
+    color: red;
+}
+
+.works-title {
+    text-align: center;
+    font-size: 60px;
+    margin: 0 auto;
+}
+
+.works-intro {
+    margin-bottom: 30px;
+}
+
+.projects-container {
+    display: flex;
+    gap: 10px;
+    background: #c1adad;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.project-card {
+    width: 300px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.project-title {
+    font-size: 1.2rem;
+    margin: 15px 0 10px;
+}
+
+.project-desc {
+    font-size: 14px;
+    color: #666;
+}
+
+.no-projects {
+    text-align: center;
+    padding: 50px;
+    width: 100%;
+    color: #fff;
+}
+
+.about-title {
+    text-align: left;
+    font-size: 60px;
+    margin: 0 auto;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.admin-title {
+    text-align: left;
+    font-size: 60px;
+    margin: 0 auto;
+}
+
+.admin-sub-page-content {
+    margin: 0 auto;
+}
+
+.admin-page-title {
+    text-align: left; 
+    font-size: 60px; 
+    margin: 0 auto; 
+    color: #ffff;
+}
+
+.admin-project-form {
+    margin-bottom: 30px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 10px; 
+    max-width: 500px;
+}
+
+.admin-project-input {
+    padding: 10px; 
+    border: 1px solid #ccc;
+}
+
+.admin-form-btn-group {
+    display: flex; 
+    gap: 10px;
+}
+
+.btn-project-submit {
+    flex: 1; 
+    padding: 10px; 
+    color: #fff; 
+    cursor: pointer; 
+    border: none;
+}
+
+.btn-project-cancel {
+    padding: 10px; 
+    background: #ccc; 
+    cursor: pointer; 
+    border: none;
+}
+
+.admin-project-table {
+    border-collapse: collapse; 
+    background: #f9f9f9; 
+    margin-bottom: 30px;
+}
+
+.admin-table-header {
+    background: #f4f4f4; 
+    color: #333;
+}
+
+.admin-table-cell {
+    padding: 10px;
+}
+
+.admin-table-row {
+    color: #333;
+}
+
+.project-img-preview {
+    width: 100px; 
+    height: 60px; 
+    object-fit: cover;
+}
+
+.project-desc-text {
+    font-size: 12px; 
+    color: #666; 
+    margin: 5px 0 0;
+}
+
+.btn-edit-action {
+    color: blue; 
+    cursor: pointer; 
+    margin-right: 10px; 
+    background: none; 
+    border: none;
+}
+
+.btn-delete-action {
+    color: red; 
+    cursor: pointer; 
+    background: none; 
+    border: none;
+}
+.admin-sub-page.messages-container{
+        margin: 0 auto;
+        margin-bottom: 10px;
+}
+
+.messages-title {
+    text-align: left; 
+    font-size: 60px; 
+    color: #ffff;
+}
+
+.messages-subtitle {
+    color: #666; 
+    margin-bottom: 20px;
+}
+
+.messages-table {
+    border-collapse: collapse; 
+    margin-top: 20px; 
+    text-align: left;
+}
+
+.messages-table-head {
+    background: #f4f4f4;
+}
+
+.messages-table-cell {
+    padding: 10px;
+}
+
+.btn-delete-msg {
+    color: red; 
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.no-messages-cell {
+    text-align: center; 
+    padding: 30px;
+}
+   
+.users-manager-container {
+    margin: 0 auto;
+}
+
+.users-title {
+    text-align: left; 
+    font-size: 60px; 
+    margin: 0 auto; 
+    color: #ffff;
+}
+
+.users-table {
+    border-collapse: collapse; 
+    margin-top: 20px; 
+    margin-bottom: 10px;
+    text-align: center; 
+    background: #f9f9f9;
+}
+
+.users-table-head {
+    background: #f4f4f4;
+}
+
+.users-table-row {
+    text-align: center;
+    color: #333; 
+}
+
+.users-table-cell {
+    padding: 10px;
+}
+
+.role-badge {
+    padding: 10px;
+    font-weight: bold;
+}
+
+.btn-toggle-role {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.btn-delete-user {
+    color: red;
+    cursor: pointer;
+}
+
+/* Tách từ inline style trang AdminImages */
+.img-lib-container {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.img-lib-title {
+    text-align: left; 
+    font-size: 60px; 
+    margin: 0 auto; 
+    color: #ffff;
+}
+
+.img-lib-subtitle {
+    color: #666; 
+    margin-bottom: 20px;
+}
+
+/* Form thêm ảnh */
+.img-add-form {
+    margin-bottom: 30px; 
+    display: flex; 
+    gap: 10px;
+}
+
+.img-input-url {
+    flex: 1; 
+    padding: 12px; 
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.btn-img-submit {
+    padding: 10px 25px; 
+    cursor: pointer; 
+    background: #0070f3; 
+    color: #fff; 
+    border: none; 
+    border-radius: 4px; 
+    font-weight: bold;
+}
+
+.img-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+    gap: 20px; 
+    margin-bottom: 40px;
+}
+
+.image-card {
+    padding: 10px; 
+    text-align: center; 
+    border-radius: 8px; 
+    background: #fff; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.img-preview-item {
+    width: 100%; 
+    height: 160px; 
+    object-fit: cover; 
+    cursor: pointer; 
+    border-radius: 4px;
+}
+
+.img-card-actions {
+    margin-top: 12px; 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 5px;
+}
+
+.btn-copy-url {
+    flex: 1; 
+    font-size: 12px; 
+    cursor: pointer; 
+    padding: 5px; 
+    background: #f0f0f0; 
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.btn-delete-img {
+    font-size: 12px; 
+    color: #fff; 
+    background: #ff4d4f; 
+    border: none; 
+    cursor: pointer; 
+    padding: 5px 10px; 
+    border-radius: 3px;
+}
+
+.empty-lib-msg {
+    grid-column: 1/-1; 
+    text-align: center; 
+    padding: 40px; 
+    color: #999; 
+    border: 2px dashed #eee;
+}

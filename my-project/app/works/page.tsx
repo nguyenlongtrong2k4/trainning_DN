@@ -39,23 +39,19 @@ export default function Works() {
             <li>
               <Link href="/admin">🔐</Link> | <Link href="/login">👤</Link>
               {user && (
+                <>
+                  {" | "} Hello, {user.full_name || user.name}
+                  {user.role === "admin" && (
                     <>
-                    {" | "}
-                    Hello, {user.full_name || user.name}
-
-                    {user.role === "admin" && (
-                        <>
-                        {" | "}
-                        <Link href="/admin">Admin</Link>
-                        </>
-                    )}
-
-                    {" | "}
-                    <button style={{ border: "1px solid #ccc", padding: "2px 10px", background: "none", cursor: "pointer", color: "red" }} onClick={handleLogout}>
-                      Logout
-                    </button>
+                      {" | "} <Link href="/admin">Admin</Link>
                     </>
-                )}
+                  )}
+                  {" | "}
+                  <button className="btn-logout" onClick={handleLogout}>
+                    Logout
+                  </button>
+                </>
+              )}
             </li>
           </ul>
         </nav>
@@ -63,31 +59,25 @@ export default function Works() {
 
       <section className="main">
         <div className="works">
-          <h1 style={{ marginBottom: "10px" , margin:"0 auto" }}>Our Works</h1>
-          <p style={{ marginBottom: "30px" }}>Here are some of our recent projects and achievements.</p>
+          <p className="works-title">Our Works</p>
+          <hr color="#ccc" />
+          <p className="works-intro">Here are some of our recent projects and achievements.</p>
 
-          <div className="work-list" style={{ 
-            display: "flex", 
-            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", 
-            gap: "10px", 
-            background: "#8d7e7e", 
-            padding: "10px", 
-            borderRadius: "8px" 
-          }}>
+          <div className="projects-container">
             {projects.length > 0 ? (
               projects.map((project) => (
-                <div key={project.id} className="work-card" style={{ background: "#fff", padding: "15px", borderRadius: "8px", color: "#333" }}>
+                <div key={project.id} className="project-card">
                   <img 
-                    style={{ width: "100%", height: "200px", objectFit: "cover", borderRadius: "4px" }}
+                    className="project-image"
                     src={project.image || "https://via.placeholder.com/300x200"} 
                     alt={project.title} 
                   />
-                  <h2 style={{ fontSize: "1.2rem", margin: "15px 0 10px" }}>{project.title}</h2>
-                  <p style={{ fontSize: "14px", color: "#666" }}>{project.description}</p>
+                  <h2 className="project-title">{project.title}</h2>
+                  <p className="project-desc">{project.description}</p>
                 </div>
               ))
             ) : (
-              <div style={{ textAlign: "center", padding: "50px", gridColumn: "1 / -1", color: "#fff" }}>
+              <div className="no-projects">
                 <p>No projects have been posted yet...</p>
               </div>
             )}
