@@ -517,7 +517,8 @@ footer{
 }
 
 .projects-container {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     background: #c1adad;
     padding: 10px;
