@@ -23,6 +23,15 @@
     color: #FFFF;
     text-decoration: none;
 }
+
+.header nav ul li a:hover {
+    color: red;
+}
+
+.header nav ul li a:active {
+    color: rgb(0, 0, 0);
+}
+
 .main{
     border: 1px solid #ffff;
     display: flex;
@@ -745,7 +754,6 @@ footer{
     cursor: pointer;
 }
 
-/* Tách từ inline style trang AdminImages */
 .img-lib-container {
     margin: 0 auto;
     max-width: 900px;
@@ -763,7 +771,6 @@ footer{
     margin-bottom: 20px;
 }
 
-/* Form thêm ảnh */
 .img-add-form {
     margin-bottom: 30px; 
     display: flex; 

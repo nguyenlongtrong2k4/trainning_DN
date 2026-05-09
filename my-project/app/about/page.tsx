@@ -35,7 +35,7 @@ export default function About() {
               {user && (
                 <>
                   {" | "}
-                  Xin chào, {user.full_name || user.name}
+                  Hello, {user.full_name || user.name}
 
                   {user.role === "admin" && (
                     <>
